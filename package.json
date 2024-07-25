@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "jasmine": "^5.2.0"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0"
+  }
+}
