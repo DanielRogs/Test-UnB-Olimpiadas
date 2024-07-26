@@ -1,5 +1,4 @@
 const { format } = require('date-fns');
-const readline = require('readline');
 
 class EventManager {
     constructor() {
@@ -46,50 +45,16 @@ class EventManager {
         });
     }
 
-    removeEvent(){
-        
-
-
+    removeEvent(nome){
+            const index = this.events.findIndex(evento => evento.eventName === nome);
+            
+            if (index !== -1) {
+              this.events.splice(index, 1);
+              console.log(`Evento "${nome}" removido com sucesso.`);
+            } else {
+              console.log(`Evento "${nome}" não encontrado.`);
+            }
     }
 }
 
 module.exports = EventManager;
-
-let events = [];
-
-do{
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-      });
-      
-      rl.question('Digite a ação (adicionar, remover, mostrar, sair): ', (acao) => {
-          if(acao === "adicionar"){
-            let name;
-            let startHour;
-            let endHour;
-            rl.question('Digite o nome do evento: ', (name));
-            rl.question('Digite a hora de início (YYYY-MM-DD HH:MM): ', (startHour));
-            rl.question('Digite a hora de término (YYYY-MM-DD HH:MM): ', (endHour));
-            events.push(new EventManager.addEvent(name, startHour, endHour));
-          }
-
-          else if (acao === "remover"){
-            let name;
-            rl.question('Digite o nome do evento: ', (name));
-            Event.removeEvent()
-            
-          }
-
-          else if(acao === "mostrar"){
-            
-          }
-          
-          else{
-            return 0;
-          }
-      });
-}while(acao != 5)
-
-
-
