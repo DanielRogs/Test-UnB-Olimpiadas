@@ -56,5 +56,3 @@ class Interface {
 }
 
 module.exports = Interface;
-
-new Interface();
